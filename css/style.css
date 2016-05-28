@@ -1,0 +1,43 @@
+
+
+.comparison {
+  width: 100%;
+  height: 100%;
+  /*overflow: hidden;*/
+  /*position: relative;*/
+}
+.comparison figure {
+  margin: 0 !important;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.comparison figure > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: calc(100% + 1px);
+  height: 100%;
+}
+.comparison figure > div > div {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+.comparison figure img {
+  display: block;
+  position: relative;
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}
+.comparison input {
+  margin-top: 1em;
+  width: 100%;
+}
