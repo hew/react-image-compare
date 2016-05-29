@@ -1,97 +1,50 @@
-# React Scroll Horizontal
+# React Image Comparison
 
-A React component for scrolling horizontally with the mouse wheel.
-
-## How it Works
-
-Feed `<HorizontalScroll>` one child, or many children.
-So long as they have a static width, this component will
-take care of the rest.
-
----
-
-**Note**: This component is in a **beta**.
-I haven't explored all the animation options, and Firefox is giving slightly different deltas for some of the mice that I have
-tested. See that issue [here](https://github.com/hew/react-horizontal-scroll/issues/1).
-
-___
+> Before/after image comparison components: <br>
+> - Manual or
+> - scroll-based
 
 ## Usage
 
-```bash
-npm i react-scroll-horizontal
+```
+import { ImageCompare, ImageCompareScroll } from 'react-image-compare'
+
+const img1    = 'img/before.jpg'
+const img2    = 'img/after.jpg'
+
+compareStylesScroll = {{ borderRight: `3px dotted yellow` }}
+compareStylesManual = {{ borderBottom: `3px dotted yellow` }}
+
+// render
+
+  <ImageCompareScroll
+    srcOver={img1}
+    srcUnder={img2}
+    vertical={false}
+    styles={compareStylesScroll}
+  />
+
+// ...
+
+  <ImageCompare
+    srcOver={img1}
+    srcUnder={img2}
+    vertical={true}
+    styles={compareStylesManual}
+  />
+
 ```
 
-```jsx
-  <HorizontalScroll
-      pageLock      = { bool }
-      reverseScroll = { bool }
-      config        = {{ stiffness: int, damping: int }}
-      >
-      { children }
-  </HorizontalScroll>
+## Low-level, Responsive
 
-```
+These components were written with flexibility in mind, and are completely responsive.
+You can wrap them in any styles you need, and pass through an object to style the animating div.
 
-Props
+## Inspired By
 
-* `pageLock` - Adds a `lock__` class to the HTML body
-* `reverseScroll` - Reverses the scroll direction
-* `config`        - Passes a spring config object to React Motion
+The [Twenty Twenty](http://zurb.com/playground/twentytwenty) jQuery plugin.
 
+## Powered By
 
-Gotchas
-
-* Uses Flexbox
-* Child item(s) must be px/em/vw - no percentages (yet)
-
-
-### Arbitrary Parent/Child Widths Example
-```jsx
-import React, { Component } from 'react'
-import HorizontalScroll from 'react-horizontal-scroll'
-
-class ScrollingHorizontally extends Component {
-  render() {
-    const child   = { width: `30em`, height: `100%`}
-    const parent  = { width: `60em`, height: `100%`}
-    return (
-      <div style={parent}>
-        <HorizontalScroll>
-            <div style={child} />
-            <div style={child} />
-            <div style={child} />
-        </HorizontalScroll>
-      </div>
-    )
-  }
-}
-```
-### Full Width Example
-```js
-import React, { Component } from 'react'
-import HorizontalScroll from 'react-horizontal-scroll'
-
-class ScrollingHorizontally extends Component {
-  render() {
-    const child = { width: `300em`, height: `100%`}
-    return (
-      <body>
-        <HorizontalScroll>
-          <div style={child} />
-        </HorizontalScroll>
-      </body>
-
-    )
-  }
-}
-```
-
-
-## Contributing
-
-Yes, please!
-
-
----
-MIT License
+- [React Track](https://github.com/gilbox/react-track)
+- [React Imation](https://github.com/gilbox/react-imation)

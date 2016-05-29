@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -28,9 +30,8 @@ var ImageCompare = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageCompare).call(this, props));
 
-    _this.state = {
-      percentage: 5
-    };
+    _this.state = { percentage: 1 };
+
     _this._slide = _this._slide.bind(_this);
     return _this;
   }
@@ -46,6 +47,7 @@ var ImageCompare = function (_Component) {
       var srcOver = _props.srcOver;
       var srcUnder = _props.srcUnder;
       var controls = _props.controls;
+      var styles = _props.styles;
 
 
       return _react2.default.createElement(
@@ -55,15 +57,28 @@ var ImageCompare = function (_Component) {
           'figure',
           null,
           _react2.default.createElement('img', { src: srcOver, alt: '' }),
-          !vertical && _react2.default.createElement('div', { style: { width: (percentage || this.state.percentage) + '%', backgroundImage: 'url(' + srcUnder + ')' } }),
-          vertical && _react2.default.createElement('div', { style: { height: (percentage || this.state.percentage) + '%', backgroundImage: 'url(' + srcUnder + ')' } })
+          !vertical && _react2.default.createElement('div', { style: _extends({
+              width: (percentage || this.state.percentage) + '%',
+              backgroundImage: 'url(' + srcUnder + ')'
+            }, styles) }),
+          vertical && _react2.default.createElement('div', { style: _extends({
+              height: (percentage || this.state.percentage) + '%',
+              backgroundImage: 'url(' + srcUnder + ')'
+            }, styles) })
         ),
         controls && _react2.default.createElement(
           'div',
           { className: 'compare-controls' },
-          _react2.default.createElement('input', { type: 'range', min: '0', max: '100', value: this.state.percentage, ref: function ref(c) {
+          _react2.default.createElement('input', {
+            type: 'range',
+            min: '0',
+            max: '100',
+            value: this.state.percentage,
+            ref: function ref(c) {
               return _this2._input = c;
-            }, onChange: this._slide })
+            },
+            onChange: this._slide
+          })
         )
       );
     }

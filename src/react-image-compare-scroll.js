@@ -1,28 +1,26 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import ReactDOM, { findDOMNode } from 'react-dom'
 import { Easer } from 'functional-easing'
 import { Track, TrackedDiv, TrackDocument } from '../lib/ReactTrack'
 import { tween, combine } from 'react-imation'
 import { percent } from 'react-imation/tween-value-factories'
 import { topTop,
-        centerCenter,
+        bottomBottom,
         getDocumentRect,
         getDocumentElement,
         calculateScrollY} from 'react-track/tracking-formulas'
-
 import '../css/style.css'
 
 const easeOutBounce = new Easer().using('out-bounce')
 
+
 export default class ImageCompareScroll extends Component {
 
-  static defaultProps = {
-    vertical: false
-  }
+  static defaultProps = { vertical: false }
 
   render() {
 
-    const { srcUnder, srcOver, vertical } = this.props
+    const { srcUnder, srcOver, vertical, styles } = this.props
 
     return (
 
@@ -31,45 +29,38 @@ export default class ImageCompareScroll extends Component {
           getDocumentElement,
           getDocumentRect,
           calculateScrollY,
-          topTop,
-          centerCenter
+          bottomBottom,
+          topTop
         ]}>
 
-        {(documentElement, documentRect, scrollY, topTop, centerCenter) =>
+        {(documentElement, documentRect, scrollY, bottomBottom, topTop) =>
 
-          <TrackedDiv formulas={[topTop, centerCenter]}>
-            {(posCenterCenter,posTopTop) =>
+          <TrackedDiv formulas={[bottomBottom, topTop]}>
+            {(posBottomBottom, posTopTop) =>
 
               <div className='comparison'>
                 <figure>
                   <img src={ srcOver } alt="" />
-
-                  {/*
-                    The default is to render horizontally
-                  */}
-
+                  {/* The default is to render horizontally */}
                   { !vertical &&
                     <div
                       style={tween(scrollY, [
-                        [ posTopTop,       { width: percent(0), height: percent(100) }  ],
-                        [ posCenterCenter, { width: percent(100), height: percent(100) } ]
+                        [ 0,                    { width: percent(0), height: percent(100) } ],
+                        [ posBottomBottom,      { width: percent(0), height: percent(100) } ],
+                        [ posTopTop,            { width: percent(100), height: percent(100) } ]
                       ])}>
-                      <div style={{ backgroundImage: `url(${srcUnder})` }}></div>
+                      <div style={{ backgroundImage: `url(${srcUnder})`, ...styles }}></div>
                     </div>
                   }
-
-                  {/*
-                    Otherwise, if the vertical property is set,
-                    we render the vertical styles
-                  */}
-
+                  {/* Otherwise, if the vertical property is set, render vertically */}
                   { vertical &&
                     <div
                       style={tween(scrollY, [
-                        [ posTopTop,       { height: percent(0), width: percent(100) }  ],
-                        [ posCenterCenter, { height: percent(100), width: percent(100) } ]
+                        [ 0,                    { height: percent(0), width: percent(100) } ],
+                        [ posBottomBottom,      { height: percent(0), width: percent(100) }  ],
+                        [ posTopTop,            { height: percent(100), width: percent(100) } ]
                       ])}>
-                      <div style={{ backgroundImage: `url(${srcUnder})` }}></div>
+                      <div style={{ backgroundImage: `url(${srcUnder})`, ...styles }}></div>
                     </div>
                   }
                 </figure>

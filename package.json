@@ -1,8 +1,9 @@
 {
-  "name": "react-scroll-horizontal",
-  "version": "0.0.5",
-  "description": "Easy Horizontal Scrolling for React",
-  "main": "dist/react-scroll-horizontal.js",
+  "name": "react-image-compare",
+  "version": "0.0.1",
+  "description": "React components for low-level picture comparisons",
+  "main": "dist/index.js",
+  "style": "css/style.css",
   "scripts": {
     "prepublish": "babel src --out-dir dist",
     "dev": "webpack-dev-server --progress --colors --config webpack.dev.config.js",
@@ -12,10 +13,9 @@
   "author": "Matthew Jones",
   "license": "MIT",
   "keywords": [
-    "mousewheel",
-    "horizontal-scroll",
-    "scroll-horizontal",
-    "react"
+    "picture-comparison",
+    "react",
+    "twenty-twenty"
   ],
   "devDependencies": {
     "babel-cli": "^6.5.1",
@@ -46,12 +46,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hew/react-horizontal-scroll.git"
+    "url": "git+https://github.com/hew/react-image-compare.git"
   },
   "bugs": {
-    "url": "https://github.com/hew/react-horizontal-scroll/issues"
+    "url": "https://github.com/hew/react-image-compare/issues"
   },
-  "homepage": "https://github.com/hew/react-horizontal-scroll",
+  "homepage": "https://github.com/hew/react-image-compare",
   "babel": {
     "presets": [
       "es2015",
@@ -60,9 +60,6 @@
     ]
   },
   "dependencies": {
-    "animated": "^0.1.2",
-    "lodash.throttle": "^4.0.1",
-    "normalize.css": "^4.1.1",
-    "react-throttle": "^0.2.0"
+    "normalize.css": "^4.1.1"
   }
 }

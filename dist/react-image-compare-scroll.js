@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -52,17 +54,18 @@ var ImageCompareScroll = function (_Component) {
       var srcUnder = _props.srcUnder;
       var srcOver = _props.srcOver;
       var vertical = _props.vertical;
+      var styles = _props.styles;
 
 
       return _react2.default.createElement(
         _ReactTrack.TrackDocument,
         {
-          formulas: [_trackingFormulas.getDocumentElement, _trackingFormulas.getDocumentRect, _trackingFormulas.calculateScrollY, _trackingFormulas.topTop, _trackingFormulas.centerCenter] },
-        function (documentElement, documentRect, scrollY, topTop, centerCenter) {
+          formulas: [_trackingFormulas.getDocumentElement, _trackingFormulas.getDocumentRect, _trackingFormulas.calculateScrollY, _trackingFormulas.bottomBottom, _trackingFormulas.topTop] },
+        function (documentElement, documentRect, scrollY, bottomBottom, topTop) {
           return _react2.default.createElement(
             _ReactTrack.TrackedDiv,
-            { formulas: [topTop, centerCenter] },
-            function (posCenterCenter, posTopTop) {
+            { formulas: [bottomBottom, topTop] },
+            function (posBottomBottom, posTopTop) {
               return _react2.default.createElement(
                 'div',
                 { className: 'comparison' },
@@ -73,14 +76,14 @@ var ImageCompareScroll = function (_Component) {
                   !vertical && _react2.default.createElement(
                     'div',
                     {
-                      style: (0, _reactImation.tween)(scrollY, [[posTopTop, { width: (0, _tweenValueFactories.percent)(0), height: (0, _tweenValueFactories.percent)(100) }], [posCenterCenter, { width: (0, _tweenValueFactories.percent)(100), height: (0, _tweenValueFactories.percent)(100) }]]) },
-                    _react2.default.createElement('div', { style: { backgroundImage: 'url(' + srcUnder + ')' } })
+                      style: (0, _reactImation.tween)(scrollY, [[0, { width: (0, _tweenValueFactories.percent)(0), height: (0, _tweenValueFactories.percent)(100) }], [posBottomBottom, { width: (0, _tweenValueFactories.percent)(0), height: (0, _tweenValueFactories.percent)(100) }], [posTopTop, { width: (0, _tweenValueFactories.percent)(100), height: (0, _tweenValueFactories.percent)(100) }]]) },
+                    _react2.default.createElement('div', { style: _extends({ backgroundImage: 'url(' + srcUnder + ')' }, styles) })
                   ),
                   vertical && _react2.default.createElement(
                     'div',
                     {
-                      style: (0, _reactImation.tween)(scrollY, [[posTopTop, { height: (0, _tweenValueFactories.percent)(0), width: (0, _tweenValueFactories.percent)(100) }], [posCenterCenter, { height: (0, _tweenValueFactories.percent)(100), width: (0, _tweenValueFactories.percent)(100) }]]) },
-                    _react2.default.createElement('div', { style: { backgroundImage: 'url(' + srcUnder + ')' } })
+                      style: (0, _reactImation.tween)(scrollY, [[0, { height: (0, _tweenValueFactories.percent)(0), width: (0, _tweenValueFactories.percent)(100) }], [posBottomBottom, { height: (0, _tweenValueFactories.percent)(0), width: (0, _tweenValueFactories.percent)(100) }], [posTopTop, { height: (0, _tweenValueFactories.percent)(100), width: (0, _tweenValueFactories.percent)(100) }]]) },
+                    _react2.default.createElement('div', { style: _extends({ backgroundImage: 'url(' + srcUnder + ')' }, styles) })
                   )
                 )
               );
@@ -94,7 +97,5 @@ var ImageCompareScroll = function (_Component) {
   return ImageCompareScroll;
 }(_react.Component);
 
-ImageCompareScroll.defaultProps = {
-  vertical: false
-};
+ImageCompareScroll.defaultProps = { vertical: false };
 exports.default = ImageCompareScroll;
