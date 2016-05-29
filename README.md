@@ -4,6 +4,11 @@
 > - Manual or
 > - scroll-based
 
+
+## Demo 
+
+[http://hew.tools/react-image-compare](http://hew.tools/react-image-compare)
+
 ## Usage
 
 ```
