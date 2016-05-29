@@ -18,7 +18,7 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _functionalEasing = require('functional-easing');
 
-var _ReactTrack = require('../lib/ReactTrack');
+var _reactTrack = require('../react-track');
 
 var _reactImation = require('react-imation');
 
@@ -58,12 +58,12 @@ var ImageCompareScroll = function (_Component) {
 
 
       return _react2.default.createElement(
-        _ReactTrack.TrackDocument,
+        _reactTrack.TrackDocument,
         {
           formulas: [_trackingFormulas.getDocumentElement, _trackingFormulas.getDocumentRect, _trackingFormulas.calculateScrollY, _trackingFormulas.bottomBottom, _trackingFormulas.topTop] },
         function (documentElement, documentRect, scrollY, bottomBottom, topTop) {
           return _react2.default.createElement(
-            _ReactTrack.TrackedDiv,
+            _reactTrack.TrackedDiv,
             { formulas: [bottomBottom, topTop] },
             function (posBottomBottom, posTopTop) {
               return _react2.default.createElement(

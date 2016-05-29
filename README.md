@@ -4,6 +4,10 @@
 > - Manual or
 > - scroll-based
 
+## Demo
+
+[http://hew.tools/react-image-compare](http://hew.tools/react-image-compare)
+
 ## Usage
 
 ```
@@ -39,6 +43,10 @@ compareStylesManual = {{ borderBottom: `3px dotted yellow` }}
 
 These components were written with flexibility in mind, and are completely responsive.
 You can wrap them in any styles you need, and pass through an object to style the animating div.
+
+## Roadmap
+
+- [ ] Split up the library/documentation dependencies
 
 ## Inspired By
 
