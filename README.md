@@ -40,6 +40,10 @@ compareStylesManual = {{ borderBottom: `3px dotted yellow` }}
 These components were written with flexibility in mind, and are completely responsive.
 You can wrap them in any styles you need, and pass through an object to style the animating div.
 
+## Roadmap
+
+- [] Split up the library/documentation dependencies
+
 ## Inspired By
 
 The [Twenty Twenty](http://zurb.com/playground/twentytwenty) jQuery plugin.
