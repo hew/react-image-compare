@@ -18,7 +18,7 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _functionalEasing = require('functional-easing');
 
-var _reactTrack = require('../react-track');
+var _reactTrack = require('react-track');
 
 var _reactImation = require('react-imation');
 
@@ -60,12 +60,12 @@ var ImageCompareScroll = function (_Component) {
       return _react2.default.createElement(
         _reactTrack.TrackDocument,
         {
-          formulas: [_trackingFormulas.getDocumentElement, _trackingFormulas.getDocumentRect, _trackingFormulas.calculateScrollY, _trackingFormulas.bottomBottom, _trackingFormulas.topTop] },
-        function (documentElement, documentRect, scrollY, bottomBottom, topTop) {
+          formulas: [_trackingFormulas.getDocumentElement, _trackingFormulas.getDocumentRect, _trackingFormulas.calculateScrollY, _trackingFormulas.bottomBottom, _trackingFormulas.centerTop] },
+        function (documentElement, documentRect, scrollY, bottomBottom, centerTop) {
           return _react2.default.createElement(
             _reactTrack.TrackedDiv,
-            { formulas: [bottomBottom, topTop] },
-            function (posBottomBottom, posTopTop) {
+            { formulas: [bottomBottom, centerTop] },
+            function (posBottomBottom, posCenterTop) {
               return _react2.default.createElement(
                 'div',
                 { className: 'comparison' },
@@ -76,14 +76,19 @@ var ImageCompareScroll = function (_Component) {
                   !vertical && _react2.default.createElement(
                     'div',
                     {
-                      style: (0, _reactImation.tween)(scrollY, [[0, { width: (0, _tweenValueFactories.percent)(0), height: (0, _tweenValueFactories.percent)(100) }], [posBottomBottom, { width: (0, _tweenValueFactories.percent)(0), height: (0, _tweenValueFactories.percent)(100) }], [posTopTop, { width: (0, _tweenValueFactories.percent)(100), height: (0, _tweenValueFactories.percent)(100) }]]) },
-                    _react2.default.createElement('div', { style: _extends({ backgroundImage: 'url(' + srcUnder + ')' }, styles) })
+                      style: (0, _reactImation.tween)(scrollY, [[0, { width: (0, _tweenValueFactories.percent)(0), height: (0, _tweenValueFactories.percent)(100) }], [posBottomBottom, { width: (0, _tweenValueFactories.percent)(0), height: (0, _tweenValueFactories.percent)(100) }], [posCenterTop, { width: (0, _tweenValueFactories.percent)(100), height: (0, _tweenValueFactories.percent)(100) }]]) },
+                    _react2.default.createElement('div', {
+                      style: _extends({
+                        backgroundImage: 'url(' + srcUnder + ')'
+                      }, styles) })
                   ),
                   vertical && _react2.default.createElement(
                     'div',
                     {
-                      style: (0, _reactImation.tween)(scrollY, [[0, { height: (0, _tweenValueFactories.percent)(0), width: (0, _tweenValueFactories.percent)(100) }], [posBottomBottom, { height: (0, _tweenValueFactories.percent)(0), width: (0, _tweenValueFactories.percent)(100) }], [posTopTop, { height: (0, _tweenValueFactories.percent)(100), width: (0, _tweenValueFactories.percent)(100) }]]) },
-                    _react2.default.createElement('div', { style: _extends({ backgroundImage: 'url(' + srcUnder + ')' }, styles) })
+                      style: (0, _reactImation.tween)(scrollY, [[0, { height: (0, _tweenValueFactories.percent)(0), width: (0, _tweenValueFactories.percent)(100) }], [posBottomBottom, { height: (0, _tweenValueFactories.percent)(0), width: (0, _tweenValueFactories.percent)(100) }], [posCenterTop, { height: (0, _tweenValueFactories.percent)(100), width: (0, _tweenValueFactories.percent)(100) }]]) },
+                    _react2.default.createElement('div', { style: _extends({
+                        backgroundImage: 'url(' + srcUnder + ')'
+                      }, styles) })
                   )
                 )
               );
@@ -97,5 +102,11 @@ var ImageCompareScroll = function (_Component) {
   return ImageCompareScroll;
 }(_react.Component);
 
+ImageCompareScroll.propTypes = {
+  srcUnder: _react2.default.PropTypes.string.isRequired,
+  srcOver: _react2.default.PropTypes.string.isRequired,
+  vertical: _react2.default.PropTypes.bool,
+  styles: _react2.default.PropTypes.object
+};
 ImageCompareScroll.defaultProps = { vertical: false };
 exports.default = ImageCompareScroll;

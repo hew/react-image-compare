@@ -21,20 +21,20 @@ compareStylesManual = {{ borderBottom: `3px dotted yellow` }}
 
 // render
 
-  <ImageCompareScroll
-    srcOver={img1}
-    srcUnder={img2}
-    vertical={false}
-    styles={compareStylesScroll}
-  />
-
-// ...
-
   <ImageCompare
     srcOver={img1}
     srcUnder={img2}
     vertical={true}
     styles={compareStylesManual}
+  />
+
+// ...
+
+  <ImageCompareScroll
+    srcOver={img1}
+    srcUnder={img2}
+    vertical={false}
+    styles={compareStylesScroll}
   />
 
 ```
@@ -44,9 +44,12 @@ compareStylesManual = {{ borderBottom: `3px dotted yellow` }}
 These components were written with flexibility in mind, and are completely responsive.
 You can wrap them in any styles you need, and pass through an object to style the animating div.
 
-## Roadmap
+## Scroll Timings
 
-- [ ] Split up the library/documentation dependencies
+The scroll component is hard-coded to start when the element is fully visible, and within the
+bottom part of the window, and finish when at the top of the window. Most of the time this is what you want.
+If that is not what you want, it's pretty easy to alter the formulas (from [React Imation](http://github.com/gilbox/react-imation)).
+
 
 ## Inspired By
 

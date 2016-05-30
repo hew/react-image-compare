@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import '../css/style.css'
 
-
 export default class ImageCompare extends Component {
   constructor(props) {
     super(props)
@@ -11,9 +10,18 @@ export default class ImageCompare extends Component {
     this._slide = this._slide.bind(this)
   }
 
+  static propTypes = {
+    srcUnder: React.PropTypes.string.isRequired,
+    srcOver: React.PropTypes.string.isRequired,
+    vertical: React.PropTypes.bool,
+    percentage: React.PropTypes.number,
+    controls: React.PropTypes.bool,
+    styles: React.PropTypes.object
+  }
+
   render() {
 
-    const { vertical, percentage, srcOver, srcUnder, controls, styles } = this.props
+    const { srcOver, srcUnder, vertical, percentage, controls, styles } = this.props
 
     return (
 
@@ -23,18 +31,18 @@ export default class ImageCompare extends Component {
            {/* The default is to render horizontally */}
            { !vertical &&
              <div style={{
-                 width: `${ percentage || this.state.percentage}%`,
-                 backgroundImage: `url(${srcUnder})`,
-                 ...styles
-               }}></div>
+               width: `${ percentage || this.state.percentage}%`,
+               backgroundImage: `url(${srcUnder})`,
+               ...styles
+             }} />
            }
            {/* Otherwise, if the vertical property is set, render vertically */}
            { vertical &&
              <div style={{
-                 height: `${ percentage || this.state.percentage }%`,
-                 backgroundImage: `url(${srcUnder})`,
-                 ...styles
-               }}></div>
+               height: `${ percentage || this.state.percentage }%`,
+               backgroundImage: `url(${srcUnder})`,
+               ...styles
+             }} />
            }
          </figure>
          { controls &&

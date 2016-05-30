@@ -42,10 +42,10 @@ var ImageCompare = function (_Component) {
       var _this2 = this;
 
       var _props = this.props;
-      var vertical = _props.vertical;
-      var percentage = _props.percentage;
       var srcOver = _props.srcOver;
       var srcUnder = _props.srcUnder;
+      var vertical = _props.vertical;
+      var percentage = _props.percentage;
       var controls = _props.controls;
       var styles = _props.styles;
 
@@ -94,4 +94,12 @@ var ImageCompare = function (_Component) {
   return ImageCompare;
 }(_react.Component);
 
+ImageCompare.propTypes = {
+  srcUnder: _react2.default.PropTypes.string.isRequired,
+  srcOver: _react2.default.PropTypes.string.isRequired,
+  vertical: _react2.default.PropTypes.bool,
+  percentage: _react2.default.PropTypes.number,
+  controls: _react2.default.PropTypes.bool,
+  styles: _react2.default.PropTypes.object
+};
 exports.default = ImageCompare;

@@ -22,19 +22,6 @@ export default class App extends Component {
           </div>
         </div>
         <div className="hr"></div>
-        <h1 className='center'>Horizontal</h1>
-        <h3 className='center'>(scroll down)</h3>
-        <div style={{ height: `50em`, width: `600px`, paddingTop: `25em`, margin: `0 auto`}}>
-
-          <ImageCompareScroll
-            srcOver={img1}
-            srcUnder={img2}
-            vertical={false}
-            styles={{ borderRight: `3px dotted yellow`}}
-          />
-
-        </div>
-        <div className="hr"></div>
         <h1 className='center'>Manual</h1>
         <div style={{ height: `auto`, width: `600px`, margin: `0 auto`}}>
 
@@ -44,6 +31,19 @@ export default class App extends Component {
             controls={true}
             vertical={true}
             styles={{ borderBottom: `3px dotted yellow`}}
+          />
+
+        </div>
+        <div className="hr"></div>
+        <h1 className='center'>Scroll-based</h1>
+        <h3 className='center'>(scroll down)</h3>
+        <div style={{ height: `auto`, width: `600px`, paddingTop: `55em`, paddingBottom: `55em`, margin: `0 auto`}}>
+
+          <ImageCompareScroll
+            srcOver={img1}
+            srcUnder={img2}
+            vertical={false}
+            styles={{ borderRight: `3px dotted yellow`}}
           />
 
         </div>

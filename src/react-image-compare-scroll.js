@@ -1,20 +1,26 @@
 import React, { Component } from 'react'
 import ReactDOM, { findDOMNode } from 'react-dom'
 import { Easer } from 'functional-easing'
-import { Track, TrackedDiv, TrackDocument } from '../react-track'
+import { Track, TrackedDiv, TrackDocument } from 'react-track'
 import { tween, combine } from 'react-imation'
 import { percent } from 'react-imation/tween-value-factories'
-import { topTop,
+import { centerTop,
         bottomBottom,
         getDocumentRect,
         getDocumentElement,
-        calculateScrollY} from 'react-track/tracking-formulas'
+        calculateScrollY } from 'react-track/tracking-formulas'
 import '../css/style.css'
 
 const easeOutBounce = new Easer().using('out-bounce')
 
-
 export default class ImageCompareScroll extends Component {
+
+  static propTypes = {
+    srcUnder: React.PropTypes.string.isRequired,
+    srcOver: React.PropTypes.string.isRequired,
+    vertical: React.PropTypes.bool,
+    styles: React.PropTypes.object,
+  }
 
   static defaultProps = { vertical: false }
 
@@ -30,13 +36,13 @@ export default class ImageCompareScroll extends Component {
           getDocumentRect,
           calculateScrollY,
           bottomBottom,
-          topTop
+          centerTop
         ]}>
 
-        {(documentElement, documentRect, scrollY, bottomBottom, topTop) =>
+        {(documentElement, documentRect, scrollY, bottomBottom, centerTop) =>
 
-          <TrackedDiv formulas={[bottomBottom, topTop]}>
-            {(posBottomBottom, posTopTop) =>
+          <TrackedDiv formulas={[bottomBottom, centerTop]}>
+            {(posBottomBottom, posCenterTop) =>
 
               <div className='comparison'>
                 <figure>
@@ -47,9 +53,13 @@ export default class ImageCompareScroll extends Component {
                       style={tween(scrollY, [
                         [ 0,                    { width: percent(0), height: percent(100) } ],
                         [ posBottomBottom,      { width: percent(0), height: percent(100) } ],
-                        [ posTopTop,            { width: percent(100), height: percent(100) } ]
+                        [ posCenterTop,         { width: percent(100), height: percent(100) } ]
                       ])}>
-                      <div style={{ backgroundImage: `url(${srcUnder})`, ...styles }}></div>
+                      <div
+                        style={{
+                          backgroundImage: `url(${srcUnder})`,
+                          ...styles
+                        }} />
                     </div>
                   }
                   {/* Otherwise, if the vertical property is set, render vertically */}
@@ -58,16 +68,18 @@ export default class ImageCompareScroll extends Component {
                       style={tween(scrollY, [
                         [ 0,                    { height: percent(0), width: percent(100) } ],
                         [ posBottomBottom,      { height: percent(0), width: percent(100) }  ],
-                        [ posTopTop,            { height: percent(100), width: percent(100) } ]
+                        [ posCenterTop,         { height: percent(100), width: percent(100) } ]
                       ])}>
-                      <div style={{ backgroundImage: `url(${srcUnder})`, ...styles }}></div>
+                      <div style={{
+                        backgroundImage: `url(${srcUnder})`,
+                        ...styles
+                      }} />
                     </div>
                   }
-                </figure>
+                  </figure>
               </div>
             }
           </TrackedDiv>
-
 
         }</TrackDocument>
       )
