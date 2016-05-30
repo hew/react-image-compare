@@ -4,6 +4,12 @@
 > - Manual or
 > - scroll-based
 
+## Install
+
+```
+$ npm i --save react-image-compare
+```
+
 ## Demo
 
 [http://hew.tools/react-image-compare](http://hew.tools/react-image-compare)
