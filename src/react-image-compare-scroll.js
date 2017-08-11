@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM, { findDOMNode } from 'react-dom'
 import { Easer } from 'functional-easing'
-import { Track, TrackedDiv, TrackDocument } from '../react-track'
+import { Track, TrackedDiv, TrackDocument } from 'react-track'
 import { tween, combine } from 'react-imation'
 import { percent } from 'react-imation/tween-value-factories'
 import { topTop,

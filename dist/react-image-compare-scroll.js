@@ -18,7 +18,7 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _functionalEasing = require('functional-easing');
 
-var _reactTrack = require('../react-track');
+var _reactTrack = require('react-track');
 
 var _reactImation = require('react-imation');
 
