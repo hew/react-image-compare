@@ -44,17 +44,17 @@ var ImageCompareScroll = function (_Component) {
   function ImageCompareScroll() {
     _classCallCheck(this, ImageCompareScroll);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ImageCompareScroll).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ImageCompareScroll.__proto__ || Object.getPrototypeOf(ImageCompareScroll)).apply(this, arguments));
   }
 
   _createClass(ImageCompareScroll, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var srcUnder = _props.srcUnder;
-      var srcOver = _props.srcOver;
-      var vertical = _props.vertical;
-      var styles = _props.styles;
+      var _props = this.props,
+          srcUnder = _props.srcUnder,
+          srcOver = _props.srcOver,
+          vertical = _props.vertical,
+          styles = _props.styles;
 
 
       return _react2.default.createElement(

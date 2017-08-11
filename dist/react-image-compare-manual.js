@@ -28,9 +28,9 @@ var ImageCompare = function (_Component) {
   function ImageCompare(props) {
     _classCallCheck(this, ImageCompare);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageCompare).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ImageCompare.__proto__ || Object.getPrototypeOf(ImageCompare)).call(this, props));
 
-    _this.state = { percentage: 1 };
+    _this.state = { percentage: props.percentage || 1 };
 
     _this._slide = _this._slide.bind(_this);
     return _this;
@@ -41,13 +41,12 @@ var ImageCompare = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var _props = this.props;
-      var vertical = _props.vertical;
-      var percentage = _props.percentage;
-      var srcOver = _props.srcOver;
-      var srcUnder = _props.srcUnder;
-      var controls = _props.controls;
-      var styles = _props.styles;
+      var _props = this.props,
+          vertical = _props.vertical,
+          srcOver = _props.srcOver,
+          srcUnder = _props.srcUnder,
+          controls = _props.controls,
+          styles = _props.styles;
 
 
       return _react2.default.createElement(
@@ -58,11 +57,11 @@ var ImageCompare = function (_Component) {
           null,
           _react2.default.createElement('img', { src: srcOver, alt: '' }),
           !vertical && _react2.default.createElement('div', { style: _extends({
-              width: (percentage || this.state.percentage) + '%',
+              width: this.state.percentage + '%',
               backgroundImage: 'url(' + srcUnder + ')'
             }, styles) }),
           vertical && _react2.default.createElement('div', { style: _extends({
-              height: (percentage || this.state.percentage) + '%',
+              height: this.state.percentage + '%',
               backgroundImage: 'url(' + srcUnder + ')'
             }, styles) })
         ),

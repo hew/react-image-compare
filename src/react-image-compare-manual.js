@@ -6,14 +6,14 @@ export default class ImageCompare extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { percentage: 1 }
+    this.state = { percentage: props.percentage || 1 }
 
     this._slide = this._slide.bind(this)
   }
 
   render() {
 
-    const { vertical, percentage, srcOver, srcUnder, controls, styles } = this.props
+    const { vertical, srcOver, srcUnder, controls, styles } = this.props
 
     return (
 
@@ -23,7 +23,7 @@ export default class ImageCompare extends Component {
            {/* The default is to render horizontally */}
            { !vertical &&
              <div style={{
-                 width: `${ percentage || this.state.percentage}%`,
+                 width: `${this.state.percentage}%`,
                  backgroundImage: `url(${srcUnder})`,
                  ...styles
                }}></div>
@@ -31,7 +31,7 @@ export default class ImageCompare extends Component {
            {/* Otherwise, if the vertical property is set, render vertically */}
            { vertical &&
              <div style={{
-                 height: `${ percentage || this.state.percentage }%`,
+                 height: `${this.state.percentage}%`,
                  backgroundImage: `url(${srcUnder})`,
                  ...styles
                }}></div>
