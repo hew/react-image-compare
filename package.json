@@ -1,6 +1,6 @@
 {
   "name": "react-image-compare",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React components for low-level picture comparisons",
   "main": "dist/index.js",
   "style": "css/style.css",
