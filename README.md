@@ -12,7 +12,7 @@ $ npm i --save react-image-compare
 
 ## Demo
 
-[http://hew.tools/react-image-compare](http://hew.tools/react-image-compare)
+[http://hew.github.io/react-image-compare](http://hew.tools/react-image-compare)
 
 ## Usage
 
