@@ -7,7 +7,7 @@
 
 ## Demo 
 
-[http://hew.github.io/react-image-compare](http://hew.tools/react-image-compare)
+[http://hew.github.io/react-image-compare](http://hew.github.io/react-image-compare/)
 
 ## Usage
 
